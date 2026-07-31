@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Library Titles Preview</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page-shell">
+        <header class="page-header">
+            <h1>New Library titles</h1>
+            <p>Preview a New Library Titles JSON file before it is sent to the webmaster.</p>
+
+            <div class="file-panel">
+                <label class="file-button" for="jsonFile">Choose JSON file</label>
+                <input id="jsonFile" type="file" accept=".json,application/json">
+                <span id="fileName">No file selected</span>
+            </div>
+
+            <p class="help-text">
+                Select a JSON file from your computer. All date-range lists in the file will
+                appear separately below.
+            </p>
+
+            <div id="status" class="status" role="status" aria-live="polite"></div>
+        </header>
+
+        <section id="listsContainer" class="lists-container" aria-live="polite">
+            <div class="empty-state">
+                Choose a JSON file to display the library titles.
+            </div>
+        </section>
+
+        <footer>
+            <p id="modifiedDate"></p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

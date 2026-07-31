@@ -1,0 +1,257 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --scc-red: #9f1d35;
+    --scc-red-dark: #7f172b;
+    --text: #292929;
+    --border: #d7d7d7;
+    --panel: #f7f7f7;
+    --background: #ffffff;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.45;
+}
+
+.page-shell {
+    width: min(100% - 32px, 760px);
+    margin: 32px auto;
+}
+
+h1,
+.period-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+}
+
+h1 {
+    margin: 0 0 12px;
+    font-size: clamp(2rem, 5vw, 2.7rem);
+}
+
+.page-header {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.page-header p {
+    margin: 8px 0;
+}
+
+.file-panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+#jsonFile {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+.file-button {
+    display: inline-block;
+    padding: 10px 16px;
+    border: 1px solid var(--scc-red);
+    border-radius: 3px;
+    background: var(--scc-red);
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.file-button:hover,
+.file-button:focus {
+    background: var(--scc-red-dark);
+}
+
+#fileName,
+.help-text,
+.status,
+footer {
+    font-size: 0.9rem;
+}
+
+.help-text {
+    color: #555;
+}
+
+.status {
+    min-height: 1.4em;
+    margin-top: 12px;
+    font-weight: 700;
+}
+
+.status.error {
+    color: #a40000;
+}
+
+.status.success {
+    color: #1d662f;
+}
+
+.lists-container {
+    margin-top: 34px;
+}
+
+.period {
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--panel);
+    overflow: hidden;
+}
+
+.period summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 17px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.period summary::-webkit-details-marker {
+    display: none;
+}
+
+.period summary::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 8px solid #333;
+    transition: transform 0.15s ease;
+}
+
+.period[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.period-title {
+    font-size: clamp(1.45rem, 4vw, 1.85rem);
+}
+
+.item-count {
+    margin-left: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    color: #666;
+}
+
+.titles-list {
+    margin: 0;
+    padding: 8px 34px 22px;
+    border-top: 1px solid var(--border);
+    background: #fff;
+    list-style: none;
+}
+
+.title-item {
+    position: relative;
+    margin: 0;
+    padding: 18px 0 18px 38px;
+}
+
+.title-item::before {
+    content: "▤";
+    position: absolute;
+    left: 0;
+    top: 18px;
+    display: grid;
+    place-items: center;
+    width: 23px;
+    height: 23px;
+    border-radius: 3px;
+    background: var(--scc-red);
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.title-line,
+.call-number {
+    margin: 0;
+}
+
+.title-link {
+    color: var(--scc-red);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.title-link:hover,
+.title-link:focus {
+    color: var(--scc-red-dark);
+}
+
+.description {
+    margin-left: 0.22rem;
+}
+
+.call-number {
+    margin-top: 2px;
+    font-size: 0.92rem;
+}
+
+.empty-state {
+    padding: 28px;
+    border: 1px dashed #aaa;
+    border-radius: 3px;
+    text-align: center;
+    color: #555;
+}
+
+.catalogue-links {
+    margin-top: 8px;
+}
+
+.catalogue-links a {
+    color: var(--scc-red);
+    text-decoration: underline;
+}
+
+.catalogue-links a:first-child {
+    margin-right: 12px;
+}
+
+footer {
+    margin-top: 36px;
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .page-shell {
+        width: min(100% - 22px, 760px);
+        margin-top: 20px;
+    }
+
+    .period summary {
+        padding: 12px;
+    }
+
+    .item-count {
+        display: none;
+    }
+
+    .titles-list {
+        padding: 4px 16px 18px;
+    }
+
+    .title-item {
+        padding-left: 34px;
+    }
+}
